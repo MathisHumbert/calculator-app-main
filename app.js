@@ -1,8 +1,10 @@
 const btns = document.querySelectorAll('button');
+const displayResult = document.querySelector('.number-display');
 
 let total = '';
 let stock;
 let action;
+let past = false;
 
 btns.forEach((btn) => {
   btn.addEventListener('click', () => {
@@ -13,12 +15,22 @@ btns.forEach((btn) => {
 
     // number
     if (btn.classList.contains('number')) {
-      total += value;
+      if (!past) {
+        total += value;
+        display(total);
+      }
+      if (past) {
+        total = '';
+        total += value;
+        display(total);
+        past = false;
+      }
     }
 
     // dot
     if (btn.classList.contains('dot')) {
       total += '.';
+      display(total);
     }
 
     // div
@@ -28,11 +40,13 @@ btns.forEach((btn) => {
         total = '';
         action = '/';
       } else {
-        total = parseInt(total);
-        stock = parseInt(stock);
+        total = parseFloat(total);
+        stock = parseFloat(stock);
         total = stock / total;
         // display
+        display(total);
         stock = undefined;
+        past = true;
       }
     }
 
@@ -41,12 +55,15 @@ btns.forEach((btn) => {
       if (!stock) {
         stock = total;
         total = '';
+        action = 'x';
       } else {
-        total = parseInt(total);
-        stock = parseInt(stock);
+        total = parseFloat(total);
+        stock = parseFloat(stock);
         total = stock * total;
         // display
+        display(total);
         stock = undefined;
+        past = true;
       }
     }
 
@@ -55,12 +72,15 @@ btns.forEach((btn) => {
       if (!stock) {
         stock = total;
         total = '';
+        action = '-';
       } else {
-        total = parseInt(total);
-        stock = parseInt(stock);
+        total = parseFloat(total);
+        stock = parseFloat(stock);
         total = stock - total;
         // display
+        display(total);
         stock = undefined;
+        past = true;
       }
     }
 
@@ -69,12 +89,15 @@ btns.forEach((btn) => {
       if (!stock) {
         stock = total;
         total = '';
+        action = '+';
       } else {
-        total = parseInt(total);
-        stock = parseInt(stock);
+        total = parseFloat(total);
+        stock = parseFloat(stock);
         total = stock + total;
         // display
+        display(total);
         stock = undefined;
+        past = true;
       }
     }
 
@@ -82,25 +105,31 @@ btns.forEach((btn) => {
     if (btn.classList.contains('del')) {
       total = total.substring(0, total.length - 1);
       // display
+      if (!total) {
+        displayResult.textContent = '0';
+      } else {
+        display(total);
+      }
     }
 
     // reset
     if (btn.classList.contains('reset')) {
       total = '';
+      displayResult.textContent = '0';
       stock = undefined;
+      past = true;
     }
 
     // equal
     if (btn.classList.contains('equal')) {
-      total = parseInt(total);
-      stock = parseInt(stock);
+      total = parseFloat(total);
+      stock = parseFloat(stock);
       result(action);
       stock = undefined;
+      past = true;
       // display
+      display(total);
     }
-
-    console.log(total);
-    console.log(stock);
   });
 });
 
@@ -114,7 +143,7 @@ const result = (action) => {
   if (action === '-') {
     return (total = stock - total);
   }
-  if (action === '*') {
+  if (action === 'x') {
     return (total = stock * total);
   }
 };
@@ -125,11 +154,16 @@ const actions = (total, stock) => {
     stock = total;
     total = '';
   } else {
-    total = parseInt(total);
-    stock = parseInt(stock);
+    total = parseFloat(total);
+    stock = parseFloat(stock);
     total = stock + total;
     // display
     stock = undefined;
+    past = true;
     return total, stock;
   }
+};
+
+const display = (total) => {
+  displayResult.textContent = total;
 };
