@@ -4,6 +4,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  background: hsl(222, 26%, 31%);
+  font-family: 'Spartan', sans-serif;
+}
 main {
   min-height: 100vh;
   display: grid;
@@ -27,6 +31,10 @@ article {
   justify-content: space-between;
   align-items: center;
 }
+.header h1 {
+  color: #fff;
+  font-size: 2rem;
+}
 
 .toggle {
   display: flex;
@@ -34,13 +42,17 @@ article {
 }
 .toggle h3 {
   align-self: flex-end;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 16px;
 }
 .toggle-container {
   border-radius: 26px;
   width: 3rem;
   height: 1rem;
   padding: 2px 4px;
-  background: #a4a4cb;
+  background: hsl(223, 31%, 20%);
   cursor: pointer;
   position: relative;
   margin-top: 3rem;
@@ -48,33 +60,97 @@ article {
 }
 i {
   font-size: 1rem;
-  color: #222;
+  color: hsl(6, 63%, 50%);
   transition: all 0.5s linear;
 }
 span {
-  color: #a4a4cb;
+  color: #fff;
+  font-size: 12px;
   transition: all 0.5s linear;
 }
+
+/* first theme */
 .on {
-  background: #ff6a95;
+  background: hsl(0, 0%, 90%);
 }
 .on i {
   transform: translateX(100%);
-  color: #fff;
+  color: hsl(25, 98%, 40%);
+}
+.on .toggle-container {
+  background: hsl(0, 5%, 81%);
 }
 .on span {
-  color: #ff6a95;
+  color: hsl(60, 10%, 19%);
 }
+.on button {
+  background: hsl(45, 7%, 89%);
+  color: hsl(60, 10%, 19%);
+}
+.on .equal {
+  background: hsl(25, 98%, 40%);
+  color: #fff;
+}
+.on .reset,
+.on .del {
+  background: hsl(185, 42%, 37%);
+  color: #fff;
+}
+.on .display {
+  background: #fff;
+  color: hsl(60, 10%, 19%);
+}
+.on .calculator {
+  background: hsl(0, 5%, 81%);
+}
+.on .header h1 {
+  color: hsl(60, 10%, 19%);
+}
+.on .toggle h3 {
+  color: hsl(60, 10%, 19%);
+}
+
+/* second theme */
 .on2 {
-  background: coral;
+  background: hsl(268, 75%, 9%);
 }
 .on2 i {
   transform: translateX(200%);
-  color: cyan;
+  color: hsl(176, 100%, 44%);
+}
+.on2 .toggle-container {
+  background: hsl(268, 71%, 12%);
 }
 .on2 span {
-  color: coral;
+  color: hsl(52, 100%, 62%);
 }
+.on2 button {
+  background: hsl(268, 47%, 21%);
+  color: hsl(52, 100%, 62%);
+}
+.on2 .equal {
+  background: hsl(176, 100%, 44%);
+  color: #222;
+}
+.on2 .reset,
+.on2 .del {
+  background: hsl(281, 89%, 26%);
+  color: #fff;
+}
+.on2 .display {
+  background: hsl(268, 71%, 12%);
+  color: hsl(52, 100%, 62%);
+}
+.on2 .calculator {
+  background: hsl(268, 71%, 12%);
+}
+.on2 .header h1 {
+  color: hsl(52, 100%, 62%);
+}
+.on2 .toggle h3 {
+  color: hsl(52, 100%, 62%);
+}
+
 .number-container {
   position: absolute;
   top: 0;
@@ -89,7 +165,7 @@ span {
 display
 */
 .display {
-  background: red;
+  background: hsl(224, 36%, 15%);
   color: white;
   padding: 20px;
   text-align: right;
@@ -100,13 +176,14 @@ display
 calculator 
 */
 .calculator {
-  background-color: red;
+  background: hsl(223, 31%, 20%);
   border-radius: 10px;
   padding: 1rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   gap: 10px;
+  max-height: 500px;
 }
 .seven {
   grid-column: 1 / 2;
@@ -123,6 +200,9 @@ calculator
 .del {
   grid-column: 4 / 5;
   grid-row: 1 / 2;
+  background: hsl(225, 21%, 49%);
+  color: #fff;
+  text-transform: uppercase;
 }
 .four {
   grid-column: 1 / 2;
@@ -155,8 +235,26 @@ calculator
 .reset {
   grid-column: 1 / 3;
   grid-row: 5 / 6;
+  background: hsl(225, 21%, 49%);
+  color: #fff;
+  text-transform: uppercase;
 }
 .equal {
   grid-column: 3 / 5;
   grid-row: 5 / 6;
+  background: hsl(6, 63%, 50%);
+  color: #fff;
+  text-transform: uppercase;
+}
+
+button {
+  background: hsl(30, 25%, 89%);
+  color: hsl(221, 14%, 31%);
+  font-size: 32px;
+  font-family: 'Spartan', sans-serif;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }

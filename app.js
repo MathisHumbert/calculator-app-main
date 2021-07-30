@@ -167,3 +167,19 @@ const actions = (total, stock) => {
 const display = (total) => {
   displayResult.textContent = total;
 };
+
+// toggle btn
+const container = document.querySelector('.hero');
+
+container.addEventListener('click', (e) => {
+  if (container.classList.contains('on2')) {
+    container.classList.remove('on2');
+    return;
+  }
+  if (container.classList.contains('on')) {
+    container.classList.remove('on');
+    container.classList.add('on2');
+  } else {
+    container.classList.add('on');
+  }
+});
