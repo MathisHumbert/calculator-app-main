@@ -170,8 +170,9 @@ const display = (total) => {
 
 // toggle btn
 const container = document.querySelector('.hero');
+const toggleContainer = document.querySelector('.toggle-container');
 
-container.addEventListener('click', (e) => {
+toggleContainer.addEventListener('click', (e) => {
   if (container.classList.contains('on2')) {
     container.classList.remove('on2');
     return;
