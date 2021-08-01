@@ -86,15 +86,18 @@ span {
 .on button {
   background: hsl(45, 7%, 89%);
   color: hsl(60, 10%, 19%);
+  box-shadow: 0 4px hsl(35, 11%, 61%);
 }
 .on .equal {
   background: hsl(25, 98%, 40%);
   color: #fff;
+  box-shadow: 0 4px hsl(25, 99%, 27%);
 }
 .on .reset,
 .on .del {
   background: hsl(185, 42%, 37%);
   color: #fff;
+  box-shadow: 0 4px hsl(185, 58%, 25%);
 }
 .on .display {
   background: #fff;
@@ -127,15 +130,18 @@ span {
 .on2 button {
   background: hsl(268, 47%, 21%);
   color: hsl(52, 100%, 62%);
+  box-shadow: 0 4px hsl(290, 70%, 36%);
 }
 .on2 .equal {
   background: hsl(176, 100%, 44%);
   color: #222;
+  box-shadow: 0 4px hsl(177, 92%, 70%);
 }
 .on2 .reset,
 .on2 .del {
   background: hsl(281, 89%, 26%);
   color: #fff;
+  box-shadow: 0 4px hsl(285, 91%, 52%);
 }
 .on2 .display {
   background: hsl(268, 71%, 12%);
@@ -203,6 +209,7 @@ calculator
   background: hsl(225, 21%, 49%);
   color: #fff;
   text-transform: uppercase;
+  box-shadow: 0 4px hsl(224, 28%, 35%);
 }
 .four {
   grid-column: 1 / 2;
@@ -238,6 +245,7 @@ calculator
   background: hsl(225, 21%, 49%);
   color: #fff;
   text-transform: uppercase;
+  box-shadow: 0 4px hsl(224, 28%, 35%);
 }
 .equal {
   grid-column: 3 / 5;
@@ -245,6 +253,7 @@ calculator
   background: hsl(6, 63%, 50%);
   color: #fff;
   text-transform: uppercase;
+  box-shadow: 0 4px hsl(6, 70%, 34%);
 }
 
 button {
@@ -257,4 +266,5 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: 0 4px hsl(28, 16%, 65%);
 }
